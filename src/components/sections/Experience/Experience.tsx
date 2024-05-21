@@ -16,7 +16,7 @@ const Experience = () => {
     <section className="h-full flex flex-col justify-center mb-28 md:mx-14">
       <SectionHeading placement={2} title="My Professional Background" />
       <div className="w-full flex flex-col md:flex-row gap-3">
-        <div className="flex flex-row md:flex-col overflow-x-scroll">
+        <div className="flex flex-row md:flex-col overflow-x-auto md:overflow-visible">
           {WORKED_COMPANIES.map((company) => (
             <Button
               description={company.title}
