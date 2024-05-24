@@ -3,9 +3,9 @@ import classNames from "classnames";
 type AnchorButtonProps = {
   description: string;
   size: "sm" | "md" | "lg";
+  href: string;
   isFluid?: boolean;
   customClass?: string;
-  href: string;
 };
 
 const AnchorButton = ({

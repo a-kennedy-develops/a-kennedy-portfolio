@@ -1,6 +1,7 @@
 import { forwardRef } from "react";
 import AnchorButton from "src/components/AnchorButton";
 import SectionHeading from "src/components/SectionHeading";
+import { SOCIAL_MEDIA_LINKS } from "src/utils/constants";
 
 const Contact = forwardRef<HTMLElement>((_props, ref) => {
   return (
@@ -37,7 +38,7 @@ const Contact = forwardRef<HTMLElement>((_props, ref) => {
             description={"LinkedIn (preferred)"}
             size={"lg"}
             isFluid
-            href={"https://www.linkedin.com/in/alexkennedy96/"}
+            href={SOCIAL_MEDIA_LINKS[1].href}
             customClass="text-center"
           />
         </div>

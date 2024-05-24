@@ -1,4 +1,4 @@
-import { RefObject } from "react";
+import { ReactElement, RefObject } from "react";
 
 export type HeaderLinkContents = {
   title: string;
@@ -13,4 +13,10 @@ export type CompanyInfo = {
   responsibilities: string[];
   skills: string[];
   endDate?: string; // IS0 8601, defaults to 'Present' if not provided
+};
+
+export type MediaLink = {
+  title: string;
+  svg: ReactElement;
+  href: string;
 };

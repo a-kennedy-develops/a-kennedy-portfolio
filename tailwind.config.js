@@ -24,15 +24,39 @@ export default {
           "100%": { transform: "translateY(0)" },
         },
         fadeOut: {
-          '0%': { opacity: 1 },
-          '100%': { opacity: 0 },
+          "0%": { opacity: 1 },
+          "100%": { opacity: 0 },
         },
       },
       animation: {
         slideDown: "slideDown 0.4s ease-in-out",
-        fadeOut: 'fadeOut 0.4s ease-in-out forwards',
+        fadeOut: "fadeOut 0.4s ease-in-out forwards",
       },
+      fill: (theme) => ({ ...theme("colors") }),
+      stroke: (theme) => ({ ...theme("colors") }),
     },
   },
-  plugins: [],
+  variants: {
+    extend: {
+      fill: ["hover"],
+      stroke: ["hover"],
+    },
+  },
+  plugins: [
+    function ({ addComponents, theme }) {
+      const components = {
+        ".after-line": {
+          "&::after": {
+            content: '""',
+            display: "block",
+            width: "1px",
+            height: "90px",
+            margin: "0px auto",
+            backgroundColor: theme("colors.slate.400"),
+          },
+        },
+      };
+      addComponents(components);
+    },
+  ],
 };
