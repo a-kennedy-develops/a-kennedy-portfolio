@@ -13,8 +13,8 @@ const Experience = () => {
   );
 
   return (
-    <section className="h-full flex flex-col justify-center mb-28 md:mx-14">
-      <SectionHeading placement={2} title="My Professional Background" />
+    <section id="experience" className="h-full flex flex-col justify-center mb-48 md:mx-auto">
+      <SectionHeading placement={2} title="Professional Background" />
       <div className="w-full flex flex-col md:flex-row gap-3">
         <div className="flex flex-row md:flex-col overflow-x-auto md:overflow-visible">
           {WORKED_COMPANIES.map((company) => (
@@ -23,6 +23,7 @@ const Experience = () => {
               size="md"
               type="secondary"
               onClick={() => setActiveCompany(company)}
+              isFluid
               active={company === activeCompany}
             />
           ))}

@@ -5,7 +5,7 @@ import { bulletPointStyle } from "src/styles/styles";
 
 const About = () => {
   return (
-    <section id="about" className="h-full flex flex-col justify-center mb-28 md:mx-14">
+    <section id="about" className="h-full flex flex-col justify-center mb-48 md:mx-auto">
       <SectionHeading placement={1} title="About Me" />
       <div className="flex flex-col-reverse md:grid md:grid-cols-[3fr_2fr] gap-14">
         <div>

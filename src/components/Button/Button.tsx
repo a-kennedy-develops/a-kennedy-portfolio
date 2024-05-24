@@ -3,6 +3,7 @@ import classNames from "classnames";
 type ButtonProps = {
   description: string;
   size: "sm" | "md" | "lg";
+  // TODO: Split into seperate components, utilize a ButtonBase component
   type: "primary" | "secondary";
   onClick: () => void;
   isFluid?: boolean;
@@ -29,7 +30,7 @@ const Button = ({
     "rounded border border-electric-yellow hover:bg-electric-yellow hover:text-electric-blue";
 
   const secondaryStyles = classNames(
-    "border-b-2 md:border-b-0 md:border-l-2 hover:bg-faded-blue-light hover:text-electric-yellow text-left",
+    "border-b-2 md:border-b-0 md:border-l-2 hover:bg-faded-blue-light hover:text-electric-yellow md:text-left",
     active ? "text-electric-yellow border-electric-yellow" : "border-zinc-600"
   );
 

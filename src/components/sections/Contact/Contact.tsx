@@ -3,7 +3,7 @@ import SectionHeading from "src/components/SectionHeading/SectionHeading";
 
 const Contact = () => {
   return (
-    <section className="h-full flex flex-col justify-center items-center mb-16 md:mx-16">
+    <section id="contact" className="h-full max-w-[37.5rem] flex flex-col justify-center items-center mb-16 md:mx-auto">
       <SectionHeading
         placement={3}
         title="Contact Me"
