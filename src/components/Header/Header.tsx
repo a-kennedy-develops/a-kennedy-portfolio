@@ -2,11 +2,12 @@ import logoDefault from "src/assets/icons/logoDefault.png";
 import logoHover from "src/assets/icons/logoHover.png";
 import { HeaderLinkContents } from "src/utils/types";
 import classNames from "classnames";
-import Button from "../Button/Button";
-import { useContext, useEffect, useState } from "react";
-import HamburgerButton from "../HamburgerButton/HamburgerButton";
+import { RefObject, useContext, useEffect, useState } from "react";
+import HamburgerButton from "../HamburgerButton";
 import MobileNav from "./components/MobileNav";
 import { NavContext } from "src/contexts/NavContext";
+import AnchorButton from "../AnchorButton";
+import { scrollToRef } from "src/utils/helpers";
 
 type HeaderProps = {
   links: HeaderLinkContents[];
@@ -48,12 +49,7 @@ const Header = ({ links, resume = true }: HeaderProps) => {
         isScrolled && !context?.isMobileNavOpen && "backdrop-blur-3xl shadow-md"
       )}
     >
-      {/* This img is not accessible, update later */}
-      <a
-        href="#landing"
-        className="mr-auto"
-        onClick={() => window.location.reload()}
-      >
+      <a href="/" className="mr-auto" onClick={() => window.location.reload()}>
         <img
           src={isLogoHovered ? logoHover : logoDefault}
           className="h-11 w-11  z-30 cursor-pointer"
@@ -72,21 +68,26 @@ const Header = ({ links, resume = true }: HeaderProps) => {
                 index === links.length - 1 && !resume ? "" : "mr-5"
               )}
             >
-              <a href={linkItem.link} className="group">
+              <a
+                href={linkItem.link}
+                className="hover:text-electric-yellow transition-colors duration-200"
+                onClick={(event) => {
+                  event.preventDefault();
+                  scrollToRef(linkItem.ref as RefObject<HTMLElement>);
+                  window.history.pushState({}, "", linkItem.link);
+                }}
+              >
                 <span className="text-electric-yellow">0{index + 1}. </span>
-                <span className="group-hover:text-electric-yellow">
-                  {linkItem.title}
-                </span>
+                <span>{linkItem.title}</span>
               </a>
             </li>
           ))}
         </ul>
         {resume && (
-          <Button
-            description="Resume"
-            size="sm"
-            type="primary"
-            onClick={() => {}}
+          <AnchorButton
+            description={"Resume"}
+            size={"sm"}
+            href={"/alexKennedyResume.pdf"}
           />
         )}
       </div>

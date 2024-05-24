@@ -1,9 +1,14 @@
-import Button from "src/components/Button/Button";
-import SectionHeading from "src/components/SectionHeading/SectionHeading";
+import { forwardRef } from "react";
+import AnchorButton from "src/components/AnchorButton";
+import SectionHeading from "src/components/SectionHeading";
 
-const Contact = () => {
+const Contact = forwardRef<HTMLElement>((_props, ref) => {
   return (
-    <section id="contact" className="h-full max-w-[37.5rem] flex flex-col justify-center items-center mb-16 md:mx-auto">
+    <section
+      id="contact"
+      className="h-full max-w-[37.5rem] flex flex-col justify-center items-center mb-16 md:mx-auto"
+      ref={ref}
+    >
       <SectionHeading
         placement={3}
         title="Contact Me"
@@ -11,7 +16,7 @@ const Contact = () => {
       />
       <div className="w-full flex flex-col text-center">
         <h2 className="font-semibold text-4xl mb-2.5">Let's connect!</h2>
-        <p className="mb-4">
+        <p className="mb-7">
           I'm actively seeking the next opportunity where I can make a
           significant contribution. While I'm focused on front-end engineering,
           I'm always open to learning new things. If you see potential for a fit
@@ -20,25 +25,25 @@ const Contact = () => {
           together.
         </p>
         <div className="flex flex-row justify-center">
-          <Button
-            description="Email"
-            size="lg"
-            type="primary"
-            onClick={() => {}}
+          <AnchorButton
+            description={"Email"}
+            size={"lg"}
             isFluid
-            customClass="mr-3"
+            href={"mailto:alexbkennedy96@gmail.com"}
+            customClass="text-center mr-3"
           />
-          <Button
-            description="LinkedIn (preferred)"
-            size="lg"
-            type="primary"
+
+          <AnchorButton
+            description={"LinkedIn (preferred)"}
+            size={"lg"}
             isFluid
-            onClick={() => {}}
+            href={"https://www.linkedin.com/in/alexkennedy96/"}
+            customClass="text-center"
           />
         </div>
       </div>
     </section>
   );
-};
+});
 
 export default Contact;

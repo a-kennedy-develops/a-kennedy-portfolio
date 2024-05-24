@@ -1,11 +1,16 @@
 import contactPhoto from "src/assets/contact-photos/me.png";
-import SectionHeading from "src/components/SectionHeading/SectionHeading";
+import SectionHeading from "src/components/SectionHeading";
 import { RECENT_TECHNOLOGIES } from "src/utils/constants";
 import { bulletPointStyle } from "src/styles/styles";
+import { forwardRef } from "react";
 
-const About = () => {
+const About = forwardRef<HTMLElement>((_props, ref) => {
   return (
-    <section id="about" className="h-full flex flex-col justify-center mb-48 md:mx-auto">
+    <section
+      id="about"
+      className="h-full flex flex-col justify-center mb-48 md:mx-auto"
+      ref={ref}
+    >
       <SectionHeading placement={1} title="About Me" />
       <div className="flex flex-col-reverse md:grid md:grid-cols-[3fr_2fr] gap-14">
         <div>
@@ -16,19 +21,28 @@ const About = () => {
             of working for an{" "}
             <a
               href="https://www.duke-energy.com/home"
-              className="text-electric-yellow"
+              className="text-electric-yellow hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               energy company
             </a>
             , a{" "}
             <a
               href="https://www.ml.com/working-with-merrill-lynch-financial-advisor/why-merrill.html"
-              className="text-electric-yellow"
+              className="text-electric-yellow hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               massive wealth-management firm
             </a>
             , and a{" "}
-            <a href="https://thebankoflondon.com/" className="text-electric-yellow">
+            <a
+              href="https://thebankoflondon.com/"
+              className="text-electric-yellow hover:underline"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               unicorn startup
             </a>
             .
@@ -45,7 +59,9 @@ const About = () => {
           </p>
           <ul className="grid gap-3 grid-cols-[minmax(140px,_200px)_minmax(140px,_200px)]">
             {RECENT_TECHNOLOGIES.map((title) => (
-              <li className={`relative pl-5 ${bulletPointStyle} after:leading-6`}>
+              <li
+                className={`relative pl-5 ${bulletPointStyle} after:leading-6`}
+              >
                 {title}
               </li>
             ))}
@@ -61,6 +77,6 @@ const About = () => {
       </div>
     </section>
   );
-};
+});
 
 export default About;

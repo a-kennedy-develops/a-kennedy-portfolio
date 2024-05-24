@@ -2,7 +2,7 @@ const Landing = () => {
   return (
     <section id="landing" className="h-screen min-h-screen flex flex-col justify-center mb-12">
         <div className="mb-4">
-          <h1 className="text-lg text-electric-yellow">
+          <h1 className="text-2xl text-electric-yellow">
             Hello, my name is
           </h1>
         </div>

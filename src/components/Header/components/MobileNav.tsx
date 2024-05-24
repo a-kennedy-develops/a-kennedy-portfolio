@@ -1,7 +1,8 @@
 import classNames from "classnames";
-import { useContext } from "react";
-import Button from "src/components/Button/Button";
+import { RefObject, useContext } from "react";
+import AnchorButton from "src/components/AnchorButton";
 import { NavContext } from "src/contexts/NavContext";
+import { scrollToRef } from "src/utils/helpers";
 import { HeaderLinkContents } from "src/utils/types";
 
 type MobileNavProps = {
@@ -26,7 +27,10 @@ const MobileNav = ({ isOpen, links }: MobileNavProps) => {
             <a
               href={linkItem.link}
               className="group flex flex-col items-center"
-              onClick={() => {
+              onClick={(event) => {
+                event.preventDefault();
+                scrollToRef(linkItem.ref as RefObject<HTMLElement>);
+                window.history.pushState({}, "", linkItem.link);
                 context?.toggleMobileNav();
               }}
             >
@@ -38,12 +42,12 @@ const MobileNav = ({ isOpen, links }: MobileNavProps) => {
           </li>
         ))}
       </ul>
-      <Button
-        description="Resume"
-        size="sm"
-        type="primary"
+      <AnchorButton
+        description={"Resume"}
+        size={"sm"}
         isFluid
-        onClick={() => {}}
+        href={"/alexKennedyResume.pdf"}
+        customClass="text-center"
       />
     </aside>
   );

@@ -1,19 +1,23 @@
 import classNames from "classnames";
-import { useState } from "react";
-import Button from "src/components/Button/Button";
-import SectionHeading from "src/components/SectionHeading/SectionHeading";
+import { forwardRef, useState } from "react";
+import Button from "src/components/Button";
+import SectionHeading from "src/components/SectionHeading";
 import { bulletPointStyle } from "src/styles/styles";
 import { WORKED_COMPANIES } from "src/utils/constants";
 import { formatToMMYY } from "src/utils/helpers";
 import { CompanyInfo } from "src/utils/types";
 
-const Experience = () => {
+const Experience = forwardRef<HTMLElement>((_props, ref) => {
   const [activeCompany, setActiveCompany] = useState<CompanyInfo>(
     WORKED_COMPANIES[0]
   );
 
   return (
-    <section id="experience" className="h-full flex flex-col justify-center mb-48 md:mx-auto">
+    <section
+      id="experience"
+      className="h-full flex flex-col justify-center mb-48 md:mx-auto"
+      ref={ref}
+    >
       <SectionHeading placement={2} title="Professional Background" />
       <div className="w-full flex flex-col md:flex-row gap-3">
         <div className="flex flex-row md:flex-col overflow-x-auto md:overflow-visible">
@@ -64,6 +68,6 @@ const Experience = () => {
       </div>
     </section>
   );
-};
+});
 
 export default Experience;

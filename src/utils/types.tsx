@@ -1,6 +1,9 @@
+import { RefObject } from "react";
+
 export type HeaderLinkContents = {
   title: string;
   link: string;
+  ref?: RefObject<HTMLElement>;
 };
 
 export type CompanyInfo = {
