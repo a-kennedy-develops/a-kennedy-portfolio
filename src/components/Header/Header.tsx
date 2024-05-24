@@ -3,7 +3,7 @@ import logoHover from "src/assets/icons/logoHover.png";
 import { HeaderLinkContents } from "src/utils/types";
 import classNames from "classnames";
 import { RefObject, useContext, useEffect, useState } from "react";
-import HamburgerButton from "../HamburgerButton";
+import HamburgerButton from "./components/HamburgerButton";
 import MobileNav from "./components/MobileNav";
 import { NavContext } from "src/contexts/NavContext";
 import AnchorButton from "../AnchorButton";
