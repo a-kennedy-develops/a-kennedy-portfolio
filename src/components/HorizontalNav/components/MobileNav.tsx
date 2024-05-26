@@ -1,9 +1,8 @@
 import classNames from "classnames";
 import { RefObject, useContext } from "react";
 import AnchorButton from "src/components/AnchorButton";
-import AnchorIcon from "src/components/AnchorIcon";
+import SocialMediaBar from "src/components/SocialMediaBar";
 import { NavContext } from "src/contexts/NavContext";
-import { SOCIAL_MEDIA_LINKS } from "src/utils/constants";
 import { scrollToRef } from "src/utils/helpers";
 import { HeaderLinkContents } from "src/utils/types";
 
@@ -51,16 +50,7 @@ const MobileNav = ({ isOpen, links }: MobileNavProps) => {
         customClass="text-center mb-8"
       />
 
-      <div className="flex justify-between mb-4 w-full max-w-40">
-        {SOCIAL_MEDIA_LINKS.map((link) => (
-          <div
-            key={`Social media icon -  ${link.title}`}
-            className={"flex transform transition-transform hover:-translate-y-1"}
-          >
-            <AnchorIcon svg={link.svg} href={link.href} />
-          </div>
-        ))}
-      </div>
+      <SocialMediaBar direction="horizontal"/>
     </aside>
   );
 };

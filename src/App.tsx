@@ -1,15 +1,15 @@
-import { PRIMARY_HEADER_LINKS, SOCIAL_MEDIA_LINKS } from "src/utils/constants";
+import { PRIMARY_HEADER_LINKS } from "src/utils/constants";
 import { useContext, useEffect, useRef, useState } from "react";
 import classNames from "classnames";
 import { NavContext } from "./contexts/NavContext";
 import { HeaderLinkContents } from "./utils/types";
-import AnchorIcon from "./components/AnchorIcon";
 import Landing from "./components/sections/Landing";
 import About from "./components/sections/About";
 import Experience from "./components/sections/Experience";
 import Contact from "./components/sections/Contact";
 import Footer from "./components/Footer";
 import HorizontalNav from "./components/HorizontalNav/HorizontalNav";
+import SocalMediaBar from "./components/SocialMediaBar";
 
 const App = () => {
   const [isScrolledToBottom, setIsScrolledToBottom] = useState(false);
@@ -67,16 +67,7 @@ const App = () => {
 
         {!isScrolledToBottom && (
           <div className="w-10 fixed bottom-0 hidden md:block md:left-5 lg:left-10 right-auto z-10 text-slate-400">
-            <ul className="flex flex-col items-center m-0 p-0 list-none after-line">
-              {SOCIAL_MEDIA_LINKS.map((link) => (
-                <li
-                  key={`Side social media icon -  ${link.title}`}
-                  className="mb-6 transform transition-transform hover:-translate-y-1"
-                >
-                  <AnchorIcon svg={link.svg} href={link.href} />
-                </li>
-              ))}
-            </ul>
+            <SocalMediaBar direction="vertical" />
           </div>
         )}
 

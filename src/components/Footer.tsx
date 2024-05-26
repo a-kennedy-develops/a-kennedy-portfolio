@@ -1,21 +1,11 @@
 import React from "react";
-import AnchorIcon from "./AnchorIcon";
-import { SOCIAL_MEDIA_LINKS } from "src/utils/constants";
+import SocialMediaBar from "./SocialMediaBar";
 
 const Footer: React.FC = () => {
   return (
     <footer className="flex flex-col items-center px-7 md:px-10 py-5 w-full">
-      <div className="flex justify-between mb-4 w-full max-w-40">
-        {SOCIAL_MEDIA_LINKS.map((link) => (
-          <div
-            key={`Social media icon -  ${link.title}`}
-            className={
-              "flex transform transition-transform hover:-translate-y-1"
-            }
-          >
-            <AnchorIcon svg={link.svg} href={link.href} />
-          </div>
-        ))}
+      <div className="mb-4 flex w-full justify-center">
+        <SocialMediaBar direction="horizontal" />
       </div>
       <p className="text-center">
         Built by Alex Kennedy using{" "}
