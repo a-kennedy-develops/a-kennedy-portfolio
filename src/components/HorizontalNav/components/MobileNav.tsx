@@ -1,7 +1,9 @@
 import classNames from "classnames";
 import { RefObject, useContext } from "react";
 import AnchorButton from "src/components/AnchorButton";
+import AnchorIcon from "src/components/AnchorIcon";
 import { NavContext } from "src/contexts/NavContext";
+import { SOCIAL_MEDIA_LINKS } from "src/utils/constants";
 import { scrollToRef } from "src/utils/helpers";
 import { HeaderLinkContents } from "src/utils/types";
 
@@ -12,18 +14,17 @@ type MobileNavProps = {
 
 const MobileNav = ({ isOpen, links }: MobileNavProps) => {
   const context = useContext(NavContext);
-  if (!isOpen) return null;
 
   return (
     <aside
       className={classNames(
-        "fixed flex items-center flex-col inset-x-0 top-full px-7 py-5 bg-electric-blue border-t border-electric-yellow shadow-md",
-        context?.isMobileNavOpen ? "animate-slideDown" : ""
+        "flex items-center flex-col bg-electric-blue w-full transition-all duration-300 ease-in-out transform overflow-hidden",
+        isOpen ? "max-h-[100vh]" : "max-h-0"
       )}
     >
       <ul className="flex flex-col">
         {links.map((linkItem, index) => (
-          <li key={index} className={"mb-8"}>
+          <li key={index} className={classNames("mb-8", index === 0 && "mt-5")}>
             <a
               href={linkItem.link}
               className="group flex flex-col items-center"
@@ -47,8 +48,19 @@ const MobileNav = ({ isOpen, links }: MobileNavProps) => {
         size={"sm"}
         isFluid
         href={"/alexKennedyResume.pdf"}
-        customClass="text-center"
+        customClass="text-center mb-8"
       />
+
+      <div className="flex justify-between mb-4 w-full max-w-40">
+        {SOCIAL_MEDIA_LINKS.map((link) => (
+          <div
+            key={`Social media icon -  ${link.title}`}
+            className={"flex transform transition-transform hover:-translate-y-1"}
+          >
+            <AnchorIcon svg={link.svg} href={link.href} />
+          </div>
+        ))}
+      </div>
     </aside>
   );
 };
