@@ -70,7 +70,7 @@ const App = () => {
             <ul className="flex flex-col items-center m-0 p-0 list-none after-line">
               {SOCIAL_MEDIA_LINKS.map((link) => (
                 <li
-                  key={`Social media icon -  ${link.title}`}
+                  key={`Side social media icon -  ${link.title}`}
                   className="mb-6 transform transition-transform hover:-translate-y-1"
                 >
                   <AnchorIcon svg={link.svg} href={link.href} />

@@ -58,8 +58,9 @@ const About = forwardRef<HTMLElement>((_props, ref) => {
             Here are a few technologies I've been working with recently:
           </p>
           <ul className="grid gap-3 grid-cols-[minmax(140px,_200px)_minmax(140px,_200px)]">
-            {RECENT_TECHNOLOGIES.map((title) => (
+            {RECENT_TECHNOLOGIES.map((title, index) => (
               <li
+                key={`Recent Technology - ${title} - ${index}`}
                 className={`relative pl-5 ${bulletPointStyle} after:leading-6`}
               >
                 {title}

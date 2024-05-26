@@ -21,8 +21,9 @@ const Experience = forwardRef<HTMLElement>((_props, ref) => {
       <SectionHeading placement={2} title="Professional Background" />
       <div className="w-full flex flex-col md:flex-row gap-3">
         <div className="flex flex-row md:flex-col overflow-x-auto md:overflow-visible">
-          {WORKED_COMPANIES.map((company) => (
+          {WORKED_COMPANIES.map((company, index) => (
             <Button
+              key={`Company Button - ${company.title} - ${index}`}
               description={company.title}
               size="md"
               type="secondary"
@@ -46,8 +47,11 @@ const Experience = forwardRef<HTMLElement>((_props, ref) => {
               : "Present"}
           </p>
           <ul className="text-lg mb-3">
-            {activeCompany.responsibilities.map((responsibility) => (
-              <li className={`relative pl-5 ${bulletPointStyle} after:top-0`}>
+            {activeCompany.responsibilities.map((responsibility, index) => (
+              <li
+                key={`Resonsibility - ${responsibility} - ${index}`}
+                className={`relative pl-5 ${bulletPointStyle} after:top-0`}
+              >
                 {responsibility}
               </li>
             ))}
@@ -55,6 +59,7 @@ const Experience = forwardRef<HTMLElement>((_props, ref) => {
           <ul className="text-base flex flex-wrap">
             {activeCompany.skills.map((skill, index) => (
               <li
+                key={`Skill - ${skill} - ${index}`}
                 className={classNames(
                   "rounded-lg text-electric-yellow bg-faded-blue-heavy mt-2 py-1 px-3 font-semibold whitespace-nowrap",
                   index !== activeCompany.skills.length - 1 && "mr-2"
