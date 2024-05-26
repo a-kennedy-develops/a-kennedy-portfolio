@@ -2,22 +2,23 @@ import logoDefault from "src/assets/icons/logoDefault.png";
 import logoHover from "src/assets/icons/logoHover.png";
 import { HeaderLinkContents } from "src/utils/types";
 import classNames from "classnames";
-import { RefObject, useContext, useEffect, useState } from "react";
+import { RefObject, useContext, useEffect, useRef, useState } from "react";
 import HamburgerButton from "./components/HamburgerButton";
 import { NavContext } from "src/contexts/NavContext";
 import AnchorButton from "../AnchorButton";
 import { scrollToRef } from "src/utils/helpers";
 import MobileNav from "./components/MobileNav";
 
-type HeaderProps = {
+type HorizontalNavProps = {
   links: HeaderLinkContents[];
   resume?: boolean;
 };
 
-const Header = ({ links, resume = true }: HeaderProps) => {
+const HorizontalNav = ({ links, resume = true }: HorizontalNavProps) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuToggled, setIsMenuToggled] = useState(false);
   const [isLogoHovered, setIsLogoHovered] = useState(false);
+  const navRef = useRef<HTMLElement | null>(null);
   const context = useContext(NavContext);
 
   useEffect(() => {
@@ -54,8 +55,23 @@ const Header = ({ links, resume = true }: HeaderProps) => {
     };
   }, [context]);
 
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(event.target as Node)) {
+        context?.toggleMobileNav();
+      }
+    };
+    if (context?.isMobileNavOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [context]);
+
   return (
     <nav
+      ref={navRef}
       className={classNames(
         "w-full fixed flex flex-col items-center px-7 md:px-10 py-5 leading-4 bg-electric-blue z-20 transition-all duration-300 ease-in-out",
         (isScrolled || isMenuToggled) && "shadow-md"
@@ -121,4 +137,4 @@ const Header = ({ links, resume = true }: HeaderProps) => {
   );
 };
 
-export default Header;
+export default HorizontalNav;
