@@ -16,9 +16,9 @@ const About = forwardRef<HTMLElement>((_props, ref) => {
         <div>
           <p className="mb-4">
             Hi! I'm Alex and I love creating things that people interact with
-            digitally. I began my journey with development on simple web pages
-            and Java projects in college, and since then I've had the pleasure
-            of working for an{" "}
+            digitally. I began my journey with development on web pages and
+            Android apps in college, and since then I've had the pleasure of
+            working for an{" "}
             <a
               href="https://www.duke-energy.com/home"
               className="text-electric-yellow hover:underline"
