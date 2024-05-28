@@ -6,6 +6,10 @@ export type HeaderLinkContents = {
   ref?: RefObject<HTMLElement>;
 };
 
+export type SectionProps = {
+  isObserved: boolean;
+};
+
 export type CompanyInfo = {
   title: string;
   position: string;

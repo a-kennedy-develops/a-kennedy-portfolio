@@ -1,21 +1,29 @@
 import classNames from "classnames";
-import { forwardRef, useState } from "react";
+import { forwardRef, useEffect, useState } from "react";
 import Button from "src/components/Button";
 import SectionHeading from "src/components/SectionHeading";
 import { bulletPointStyle } from "src/styles/styles";
 import { WORKED_COMPANIES } from "src/utils/constants";
 import { formatToMMYY } from "src/utils/helpers";
-import { CompanyInfo } from "src/utils/types";
+import { CompanyInfo, SectionProps } from "src/utils/types";
 
-const Experience = forwardRef<HTMLElement>((_props, ref) => {
+const Experience = forwardRef<HTMLElement, SectionProps>((props, ref) => {
   const [activeCompany, setActiveCompany] = useState<CompanyInfo>(
     WORKED_COMPANIES[0]
   );
+  const [observed, setObserved] = useState(false);
+
+  useEffect(() => {
+    props.isObserved && setObserved(true);
+  }, [props.isObserved]);
 
   return (
     <section
       id="experience"
-      className="h-full flex flex-col justify-center mb-48 md:mx-auto"
+      className={classNames(
+        "h-full flex flex-col justify-center mb-48 md:mx-auto transition-all duration-500",
+        observed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+      )}
       ref={ref}
     >
       <SectionHeading placement={2} title="Professional Background" />

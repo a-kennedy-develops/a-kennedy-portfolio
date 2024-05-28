@@ -1,13 +1,24 @@
-import { forwardRef } from "react";
+import classNames from "classnames";
+import { forwardRef, useEffect, useState } from "react";
 import AnchorButton from "src/components/AnchorButton";
 import SectionHeading from "src/components/SectionHeading";
 import { SOCIAL_MEDIA_LINKS } from "src/utils/constants";
+import { SectionProps } from "src/utils/types";
 
-const Contact = forwardRef<HTMLElement>((_props, ref) => {
+const Contact = forwardRef<HTMLElement, SectionProps>((props, ref) => {
+  const [observed, setObserved] = useState(false);
+
+  useEffect(() => {
+    props.isObserved && setObserved(true);
+  }, [props.isObserved]);
+  
   return (
     <section
       id="contact"
-      className="h-full max-w-[37.5rem] flex flex-col justify-center items-center mb-16 md:mx-auto"
+      className={classNames(
+        "h-full max-w-[37.5rem] flex flex-col justify-center items-center mb-16 md:mx-auto transition-all duration-500",
+        observed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+      )}
       ref={ref}
     >
       <SectionHeading

@@ -10,17 +10,21 @@ import Contact from "./components/sections/Contact";
 import Footer from "./components/Footer";
 import HorizontalNav from "./components/HorizontalNav/HorizontalNav";
 import SocalMediaBar from "./components/SocialMediaBar";
+import useOnViewport from "./hooks/useOnViewport";
 
 const App = () => {
   const [isScrolledToBottom, setIsScrolledToBottom] = useState(false);
 
   const context = useContext(NavContext);
-
+  const landingRef = useRef(null);
   const aboutRef = useRef(null);
   const experienceRef = useRef(null);
   const contactRef = useRef(null);
 
-  const refs = [aboutRef, experienceRef, contactRef];
+  const leftBarRef = useRef(null);
+  const rightBarRef = useRef(null);
+
+  const refsToLink = [aboutRef, experienceRef, contactRef];
 
   const handleScroll = () => {
     const scrollTop =
@@ -40,7 +44,7 @@ const App = () => {
   const LINKS_WITH_REFS: HeaderLinkContents[] = PRIMARY_HEADER_LINKS.map(
     (link, index) => ({
       ...link,
-      ref: refs[index],
+      ref: refsToLink[index],
     })
   );
 
@@ -59,33 +63,53 @@ const App = () => {
         )}
       >
         <div className="max-w-[62.5rem] mx-auto">
-          <Landing />
-          <About ref={aboutRef} />
-          <Experience ref={experienceRef} />
-          <Contact ref={contactRef} />
+          <Landing ref={landingRef} isObserved={useOnViewport(landingRef)} />
+          <About ref={aboutRef} isObserved={useOnViewport(aboutRef, 0.2)} />
+          <Experience
+            ref={experienceRef}
+            isObserved={useOnViewport(experienceRef, 0.2)}
+          />
+          <Contact
+            ref={contactRef}
+            isObserved={useOnViewport(contactRef, 0.2)}
+          />
         </div>
 
-        {!isScrolledToBottom && (
-          <div className="w-10 fixed bottom-0 hidden md:block md:left-5 lg:left-10 right-auto z-10 text-slate-400">
-            <SocalMediaBar direction="vertical" />
-          </div>
-        )}
+        <div
+          ref={leftBarRef}
+          className={classNames(
+            "w-10 fixed bottom-0 hidden md:block md:left-5 lg:left-10 right-auto z-10 text-slate-400 transition-all duration-700",
+            useOnViewport(leftBarRef, 0.2) && !isScrolledToBottom
+              ? "opacity-100"
+              : "opacity-0",
+            isScrolledToBottom && "opacity-0"
+          )}
+        >
+          <SocalMediaBar direction="vertical" />
+        </div>
 
-        {!isScrolledToBottom && (
-          <div className="w-10 fixed bottom-0 hidden md:block md:right-5 lg:right-10 left-auto z-10 text-slate-400">
-            <div className="flex flex-col items-center relative after-line">
-              <a
-                href="mailto:alexbkennedy96@gmail.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-sm m-y-5 m-x-auto text-slate-400 hover:text-electric-yellow tracking-widest mb-6 transform transition-transform hover:-translate-y-1"
-                style={{ writingMode: "vertical-rl" }}
-              >
-                alexbkennedy96@gmail.com
-              </a>
-            </div>
+        <div
+          ref={rightBarRef}
+          className={classNames(
+            "w-10 fixed bottom-0 hidden md:block md:right-5 lg:right-10 left-auto z-10 text-slate-400 transition-all duration-700",
+            useOnViewport(rightBarRef) && !isScrolledToBottom
+              ? "opacity-100"
+              : "opacity-0",
+            isScrolledToBottom && "opacity-0"
+          )}
+        >
+          <div className="flex flex-col items-center relative after-line">
+            <a
+              href="mailto:alexbkennedy96@gmail.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm m-y-5 m-x-auto text-slate-400 hover:text-electric-yellow tracking-widest mb-6 transform transition-transform hover:-translate-y-1"
+              style={{ writingMode: "vertical-rl" }}
+            >
+              alexbkennedy96@gmail.com
+            </a>
           </div>
-        )}
+        </div>
       </div>
       <Footer />
     </div>

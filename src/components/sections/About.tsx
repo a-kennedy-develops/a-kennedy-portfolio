@@ -2,13 +2,24 @@ import contactPhoto from "src/assets/contact-photos/me.png";
 import SectionHeading from "src/components/SectionHeading";
 import { RECENT_TECHNOLOGIES } from "src/utils/constants";
 import { bulletPointStyle } from "src/styles/styles";
-import { forwardRef } from "react";
+import { forwardRef, useEffect, useState } from "react";
+import { SectionProps } from "src/utils/types";
+import classNames from "classnames";
 
-const About = forwardRef<HTMLElement>((_props, ref) => {
+const About = forwardRef<HTMLElement, SectionProps>((props, ref) => {
+  const [observed, setObserved] = useState(false);
+
+  useEffect(() => {
+    props.isObserved && setObserved(true);
+  }, [props.isObserved]);
+
   return (
     <section
       id="about"
-      className="h-full flex flex-col justify-center mb-48 md:mx-auto"
+      className={classNames(
+        "h-full flex flex-col justify-center mb-48 md:mx-auto transition-all duration-500",
+        observed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
+      )}
       ref={ref}
     >
       <SectionHeading placement={1} title="About Me" />
