@@ -17,7 +17,7 @@ const About = forwardRef<HTMLElement, SectionProps>((props, ref) => {
     <section
       id="about"
       className={classNames(
-        "h-full flex flex-col justify-center mb-48 md:mx-auto transition-all duration-500",
+        "h-full flex flex-col justify-center mb-32 md:mb-44 lg:mb-48 md:mx-auto transition-all duration-500",
         observed ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
       )}
       ref={ref}
