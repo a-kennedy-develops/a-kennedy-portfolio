@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import { forwardRef, useEffect, useState } from "react";
 import { SectionProps } from "src/utils/types";
+import TypingAnimation from "../TypingAnimation";
 
 const Landing = forwardRef<HTMLElement, SectionProps>((props, ref) => {
   const [observed, setObserved] = useState(false);
@@ -27,11 +28,11 @@ const Landing = forwardRef<HTMLElement, SectionProps>((props, ref) => {
           <h1 className="text-2xl text-electric-yellow">Hello, my name is</h1>
         </div>
         <div className="mb-1">
-          <h2 className="text-landingClamp leading-none">Alex Kennedy.</h2>
+          <h2 className="text-landingClamp leading-none">Alex Kennedy</h2>
         </div>
-        <div className="mb-4">
+        <div className="h-32">
           <h3 className="text-landingClamp leading-none text-slate-400">
-            I build web applications.
+            I'm a <TypingAnimation />
           </h3>
         </div>
       </div>

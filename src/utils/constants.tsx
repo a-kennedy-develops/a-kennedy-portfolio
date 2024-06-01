@@ -136,3 +136,12 @@ export const SOCIAL_MEDIA_LINKS: MediaLink[] = [
     href: "https://www.instagram.com/a_kennedy96/",
   },
 ];
+
+export const LANDING_TITLES: string[] = [
+  "Frontend Engineer",
+  "Software Architect",
+  "UX Enthusiast",
+  "Full-stack Developer",
+  "Code Slinger",
+  "Cat Lover",
+];
