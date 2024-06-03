@@ -138,10 +138,10 @@ export const SOCIAL_MEDIA_LINKS: MediaLink[] = [
 ];
 
 export const LANDING_TITLES: string[] = [
-  "Frontend Engineer",
-  "Software Architect",
-  "UX Enthusiast",
+  "Software Engineer",
+  "Frontend Specialist",
   "Full-stack Developer",
+  "UX Enthusiast",
   "Code Slinger",
   "Cat Lover",
 ];
