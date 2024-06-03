@@ -1,8 +1,9 @@
 import { animate, motion, useMotionValue, useTransform } from "framer-motion";
 import { useEffect, useState } from "react";
 import { LANDING_TITLES } from "src/utils/constants";
+import BlinkingCaret from "./BlinkingCaret";
 
-const TypingAnimation = () => {
+const TypingText = () => {
   const count = useMotionValue(0);
   const textIndex = useMotionValue(0);
   const rounded = useTransform(count, (latest) => Math.round(latest));
@@ -47,7 +48,12 @@ const TypingAnimation = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  return <motion.span>{displayText}</motion.span>;
+  return (
+    <>
+      <motion.span>{displayText}</motion.span>
+      <BlinkingCaret />
+    </>
+  );
 };
 
-export default TypingAnimation;
+export default TypingText;
