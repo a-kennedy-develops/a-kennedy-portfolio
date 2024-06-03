@@ -11,6 +11,7 @@ import Footer from "./components/Footer";
 import HorizontalNav from "./components/HorizontalNav/HorizontalNav";
 import SocalMediaBar from "./components/SocialMediaBar";
 import useOnViewport from "./hooks/useOnViewport";
+import { linePedestal } from "./styles/tailwind-styles";
 
 const App = () => {
   const [isScrolledToBottom, setIsScrolledToBottom] = useState(false);
@@ -98,7 +99,7 @@ const App = () => {
             isScrolledToBottom && "opacity-0"
           )}
         >
-          <div className="flex flex-col items-center relative after-line">
+          <div className={`flex flex-col items-center relative ${linePedestal}`}>
             <a
               href="mailto:alexbkennedy96@gmail.com"
               target="_blank"

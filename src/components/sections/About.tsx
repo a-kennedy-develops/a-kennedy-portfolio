@@ -1,10 +1,10 @@
 import contactPhoto from "src/assets/contact-photos/me.png";
 import SectionHeading from "src/components/SectionHeading";
 import { RECENT_TECHNOLOGIES } from "src/utils/constants";
-import { bulletPointStyle } from "src/styles/styles";
 import { forwardRef, useEffect, useState } from "react";
 import { SectionProps } from "src/utils/types";
 import classNames from "classnames";
+import { arrowBullet } from "src/styles/tailwind-styles";
 
 const About = forwardRef<HTMLElement, SectionProps>((props, ref) => {
   const [observed, setObserved] = useState(false);
@@ -72,7 +72,7 @@ const About = forwardRef<HTMLElement, SectionProps>((props, ref) => {
             {RECENT_TECHNOLOGIES.map((title, index) => (
               <li
                 key={`Recent Technology - ${title} - ${index}`}
-                className={`relative pl-5 ${bulletPointStyle} after:leading-6`}
+                className={`relative pl-5 ${arrowBullet} after:leading-6`}
               >
                 {title}
               </li>

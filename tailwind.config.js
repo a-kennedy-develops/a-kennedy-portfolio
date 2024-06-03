@@ -16,7 +16,7 @@ export default {
         },
       },
       fontSize: {
-        landingClamp: "clamp(2.5rem, 7vw, 4.5rem)",
+        landing: "clamp(2.5rem, 7vw, 4.5rem)",
       },
       fill: (theme) => ({ ...theme("colors") }),
       stroke: (theme) => ({ ...theme("colors") }),
@@ -28,21 +28,4 @@ export default {
       stroke: ["hover"],
     },
   },
-  plugins: [
-    function ({ addComponents, theme }) {
-      const components = {
-        ".after-line": {
-          "&::after": {
-            content: '""',
-            display: "block",
-            width: "1px",
-            height: "90px",
-            margin: "0px auto",
-            backgroundColor: theme("colors.slate.400"),
-          },
-        },
-      };
-      addComponents(components);
-    },
-  ],
 };

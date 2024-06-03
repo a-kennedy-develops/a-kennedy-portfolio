@@ -28,10 +28,10 @@ const Landing = forwardRef<HTMLElement, SectionProps>((props, ref) => {
           <h1 className="text-2xl text-electric-yellow">Hello, my name is</h1>
         </div>
         <div className="mb-1">
-          <h2 className="text-landingClamp leading-none">Alex Kennedy</h2>
+          <h2 className="text-landing leading-none">Alex Kennedy</h2>
         </div>
         <div className="h-32">
-          <h3 className="text-landingClamp leading-none text-slate-400">
+          <h3 className="text-landing leading-none text-slate-400">
             I'm a <TypingAnimation />
           </h3>
         </div>

@@ -2,7 +2,7 @@ import classNames from "classnames";
 import { forwardRef, useEffect, useState } from "react";
 import Button from "src/components/Button";
 import SectionHeading from "src/components/SectionHeading";
-import { bulletPointStyle } from "src/styles/styles";
+import { arrowBullet } from "src/styles/tailwind-styles";
 import { WORKED_COMPANIES } from "src/utils/constants";
 import { formatToMMYY } from "src/utils/helpers";
 import { CompanyInfo, SectionProps } from "src/utils/types";
@@ -58,7 +58,7 @@ const Experience = forwardRef<HTMLElement, SectionProps>((props, ref) => {
             {activeCompany.responsibilities.map((responsibility, index) => (
               <li
                 key={`Resonsibility - ${responsibility} - ${index}`}
-                className={`relative pl-5 ${bulletPointStyle} after:top-0`}
+                className={`relative pl-5 ${arrowBullet} after:top-0`}
               >
                 {responsibility}
               </li>
