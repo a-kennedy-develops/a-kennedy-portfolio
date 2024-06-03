@@ -1,7 +1,7 @@
 import classNames from "classnames";
 import { forwardRef, useEffect, useState } from "react";
 import { SectionProps } from "src/utils/types";
-import TypingAnimation from "../TypingAnimation";
+import TypingText from "../TypingText";
 
 const Landing = forwardRef<HTMLElement, SectionProps>((props, ref) => {
   const [observed, setObserved] = useState(false);
@@ -32,7 +32,7 @@ const Landing = forwardRef<HTMLElement, SectionProps>((props, ref) => {
         </div>
         <div className="h-32">
           <h3 className="text-landing leading-none text-slate-400">
-            I'm a <TypingAnimation />
+            I'm a <TypingText />
           </h3>
         </div>
       </div>
