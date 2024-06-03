@@ -10,7 +10,7 @@ export const RECENT_TECHNOLOGIES: string[] = [
   "TypeScript",
   "JavaScript (ES6+)",
   "React",
-  "Redux",
+  "Next.js",
   "Node.js",
   "Express.js",
 ];
