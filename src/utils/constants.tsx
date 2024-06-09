@@ -37,7 +37,7 @@ export const WORKED_COMPANIES: CompanyInfo[] = [
     responsibilities: [
       "Developed responsive web interfaces for the core application that efficiently retrieved and displayed data from varied APIs using React, Redux, NextJS, and Tailwind under a monorepo repo hosted with AWS. Key accomplishments include creating a highly customizable account dashboard that streamlined essential client operations, building vital functionalities of the Onboarding process, and constructing user settings/notifications pages and features",
       "Engineered and documented multiple reusable, accessible components for a shared library utilized by over 40 developers spanning 5 teams",
-      "Created OpenAPI-compliant RESTful APIs using Express.js. Some highlights include APIs for generating documents in PDF, CSV, or TXT formats and for executing advanced multi-factor authentication",
+      "Built diverse OpenAPI-compliant RESTful APIs with Express.js, ensuring seamless and efficient integration with our MongoDB database and third-party providers such as Okta and SAP",
       "Wrote comprehensive unit, integration, and end-to-end tests utilizing Jest and Cypress frameworks, ensuring the reliability and maintainability of the codebase",
     ],
   },
@@ -139,27 +139,27 @@ export const SOCIAL_MEDIA_LINKS: MediaLink[] = [
     ),
     href: "https://codepen.io/alexbkennedy96",
   },
-  {
-    title: "Instagram",
-    svg: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        className="stroke-slate-400 hover:stroke-electric-yellow"
-      >
-        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-      </svg>
-    ),
-    href: "https://www.instagram.com/a_kennedy96/",
-  },
+  // {
+  //   title: "Instagram",
+  //   svg: (
+  //     <svg
+  //       xmlns="http://www.w3.org/2000/svg"
+  //       width="24"
+  //       height="24"
+  //       viewBox="0 0 24 24"
+  //       fill="none"
+  //       strokeWidth="2"
+  //       strokeLinecap="round"
+  //       strokeLinejoin="round"
+  //       className="stroke-slate-400 hover:stroke-electric-yellow"
+  //     >
+  //       <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+  //       <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+  //       <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+  //     </svg>
+  //   ),
+  //   href: "https://www.instagram.com/a_kennedy96/",
+  // },
 ];
 
 export const LANDING_TITLES: string[] = [
